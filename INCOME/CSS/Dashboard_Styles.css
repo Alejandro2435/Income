@@ -1,0 +1,61 @@
+﻿
+body{
+    font-family: 'Microsoft Yi Baiti';
+}
+
+.Select_Ingresos {
+    background-color: #3b3b45; 
+    color: white; 
+    border-color: #3b3b45; 
+    width: 100px; 
+    height: 30px; 
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.Ingresos {
+    background-color: #3b3b45; 
+    color: white; 
+    width: 350px; 
+    height: 600px; 
+    border-radius: 15px;
+    font-size: 40px;
+}
+
+.Egresos {
+    background-color: #3b3b45; 
+    color: white; 
+    width: 350px; 
+    height: 600px; 
+    border-radius: 15px; 
+    margin-top: 50px;
+    font-size: 40px;
+}
+
+.Alineacion {
+    text-align: end; 
+    width: 330px;
+}
+
+.Select_Balance {
+    background-color: #3b3b45;
+    color: white; 
+    border-color: #3b3b45; 
+    width: 100px; 
+    height: 30px; 
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.Balance {
+    background-color: #3b3b45; 
+    color: white; 
+    width: 350px; 
+    height: 300px; 
+    border-radius: 15px;
+    font-size: 40px;
+}
+
+/*Esto lo agregó alejandro*/
+
+/*Hasta aquí lo agregó alejandro*/

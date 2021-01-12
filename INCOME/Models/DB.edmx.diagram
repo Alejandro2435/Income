@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9e37857b89c5490a994a0811986b6191" Name="Diagram1">
+        <EntityTypeShape EntityType="INCOMEModel.CategoriasE" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="INCOMEModel.CategoriasI" Width="1.5" PointX="3.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="INCOMEModel.Egresos" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="INCOMEModel.Ingresos" Width="1.5" PointX="6" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="INCOMEModel.Subtotal" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="INCOMEModel.Usuarios" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <AssociationConnector Association="INCOMEModel.FK__Egresos__Tipo__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="INCOMEModel.FK__Ingresos__Tipo__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="INCOMEModel.FK__Egresos__IdUser__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="INCOMEModel.FK__Ingresos__IdUser__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="INCOMEModel.FK__Subtotal__IdUser__59063A47" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

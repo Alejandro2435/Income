@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="INCOMEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CategoriasE">
+    <Key>
+      <PropertyRef Name="IdCategoria" />
+    </Key>
+    <Property Name="IdCategoria" Type="int" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="CategoriasI">
+    <Key>
+      <PropertyRef Name="IdCategoria" />
+    </Key>
+    <Property Name="IdCategoria" Type="int" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Egresos">
+    <Key>
+      <PropertyRef Name="IdEgreso" />
+    </Key>
+    <Property Name="IdEgreso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdUser" Type="int" />
+    <Property Name="Tipo" Type="int" />
+    <Property Name="Monto" Type="money" />
+    <Property Name="Fecha" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Ingresos">
+    <Key>
+      <PropertyRef Name="IdIngreso" />
+    </Key>
+    <Property Name="IdIngreso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdUser" Type="int" />
+    <Property Name="Tipo" Type="int" />
+    <Property Name="Monto" Type="money" />
+    <Property Name="Fecha" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Subtotal">
+    <Key>
+      <PropertyRef Name="IdSubtotal" />
+    </Key>
+    <Property Name="IdSubtotal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdUser" Type="int" />
+    <Property Name="Ingreso" Type="money" />
+    <Property Name="Egreso" Type="money" />
+    <Property Name="Balance" Type="money" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="IdUser" />
+    </Key>
+    <Property Name="IdUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="40" />
+    <Property Name="username" Type="varchar" MaxLength="20" />
+    <Property Name="email" Type="varchar" MaxLength="40" />
+    <Property Name="password" Type="varchar" MaxLength="25" />
+    <Property Name="foto" Type="varchar" MaxLength="40" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'INCOME.dbo.vw_Egresos' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="vw_Egresos">
+          <Property Name="Tipo" Type="int" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="30" />
+          <Property Name="Total" Type="money" />
+        </EntityType>-->
+  <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'INCOME.dbo.vw_Ingresos' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="vw_Ingresos">
+          <Property Name="Tipo" Type="int" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="30" />
+          <Property Name="Total" Type="money" />
+        </EntityType>-->
+  <Association Name="FK__Egresos__IdUser__5535A963">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+    <End Role="Egresos" Type="Self.Egresos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="IdUser" />
+      </Principal>
+      <Dependent Role="Egresos">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Egresos__Tipo__5629CD9C">
+    <End Role="CategoriasE" Type="Self.CategoriasE" Multiplicity="0..1" />
+    <End Role="Egresos" Type="Self.Egresos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CategoriasE">
+        <PropertyRef Name="IdCategoria" />
+      </Principal>
+      <Dependent Role="Egresos">
+        <PropertyRef Name="Tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ingresos__IdUser__571DF1D5">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+    <End Role="Ingresos" Type="Self.Ingresos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="IdUser" />
+      </Principal>
+      <Dependent Role="Ingresos">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ingresos__Tipo__5812160E">
+    <End Role="CategoriasI" Type="Self.CategoriasI" Multiplicity="0..1" />
+    <End Role="Ingresos" Type="Self.Ingresos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CategoriasI">
+        <PropertyRef Name="IdCategoria" />
+      </Principal>
+      <Dependent Role="Ingresos">
+        <PropertyRef Name="Tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Subtotal__IdUser__59063A47">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+    <End Role="Subtotal" Type="Self.Subtotal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="IdUser" />
+      </Principal>
+      <Dependent Role="Subtotal">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="INCOMEModelStoreContainer">
+    <EntitySet Name="CategoriasE" EntityType="Self.CategoriasE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CategoriasI" EntityType="Self.CategoriasI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Egresos" EntityType="Self.Egresos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ingresos" EntityType="Self.Ingresos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Subtotal" EntityType="Self.Subtotal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Egresos__IdUser__5535A963" Association="Self.FK__Egresos__IdUser__5535A963">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Egresos" EntitySet="Egresos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Egresos__Tipo__5629CD9C" Association="Self.FK__Egresos__Tipo__5629CD9C">
+      <End Role="CategoriasE" EntitySet="CategoriasE" />
+      <End Role="Egresos" EntitySet="Egresos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ingresos__IdUser__571DF1D5" Association="Self.FK__Ingresos__IdUser__571DF1D5">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Ingresos" EntitySet="Ingresos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ingresos__Tipo__5812160E" Association="Self.FK__Ingresos__Tipo__5812160E">
+      <End Role="CategoriasI" EntitySet="CategoriasI" />
+      <End Role="Ingresos" EntitySet="Ingresos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Subtotal__IdUser__59063A47" Association="Self.FK__Subtotal__IdUser__59063A47">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Subtotal" EntitySet="Subtotal" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

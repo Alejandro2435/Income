@@ -1,0 +1,211 @@
+﻿body {
+    margin: 0;
+    font-family: 'Microsoft Yi Baiti';
+    font-size: 20px;
+    background-color: #33333d;
+    display: block;
+}
+
+
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+.sidebar {
+    margin: 0px;
+    padding: 0px;
+    width: auto;
+    background-color: #33333d;
+    /*position: fixed;*/
+    height: 100%;
+    overflow: auto;
+    text-align: center;
+}
+
+.sidebar a {
+    display: block;
+    color: white;
+    padding: 16px;
+    text-decoration: none;
+}
+
+.sidebar a.active {
+    background-color: #848495;
+}
+
+.sidebar a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+}
+
+.imagen {
+    border-radius: 50%;
+}
+
+.iconos{
+    height:40px;
+    width:40px;
+}
+
+@media screen and (max-width: 700px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .sidebar a {
+        float: left;
+    }
+
+    .imagen {
+        max-width: 75%;
+        height: auto;
+        border-radius: 50%;
+    }
+}
+
+.space {
+    padding-top: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.paneles {
+    background-color: #373740;
+    color: white;
+    border: none;
+    height: 400px;
+}
+
+.panelperfil {
+    padding-top: 80px;
+    padding-bottom: 40px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.padd {
+    padding: 10px;
+}
+
+button#info, button#changeinfor, button#changepassword, button#changeprofile, button#selectpic {
+    padding: 10px;
+    max-width: 100%;
+    height: auto;
+    color: #ffffff;
+    background-color: #373740;
+    border-color: #00796b;
+    border-radius: 5px;
+    border: 2px solid #00796b;
+}
+
+button#info:hover, button#changeinfor:hover , button#changepassword:hover, button#changeprofile:hover, button#selectpic:hover {
+    background-color: #00796b;
+}
+
+.margenboton {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/*Para inputs bonitos*/
+
+.input-box {
+  position: relative;
+  max-width: 100%;
+  width: 100%;
+  margin-left: 5%;
+}
+
+.input-box input {
+  border-style: none;
+  background: transparent;
+  border-bottom: 1px solid white;
+  max-width: 100%;
+  width: 90%;
+  position: relative;
+  outline: none;
+  font-family: 'Lato';
+  letter-spacing: 4px;
+  color: #fafafa;
+  padding: 10px 0;
+  color: #fafafa;
+  font-size: 20px;
+  font-weight: lighter;
+  margin-bottom: 30px;
+}
+
+.input-box input#nameinfo, input#usernameinfo, input#emailinfo {
+  border-style: none;
+  background: transparent;
+  border-bottom: 1px solid white;
+  max-width: 100%;
+  width: 90%;
+  position: relative;
+  outline: none;
+  font-family: 'Lato';
+  letter-spacing: 4px;
+  color: #fafafa;
+  padding-top: 25px;
+  color: #fafafa;
+  font-size: 20px;
+  font-weight: lighter;
+  margin-bottom: 30px;
+}
+
+.input-box label {
+    color: #fafafa;
+    position: absolute;
+    padding: 10px 0;
+    top: 0;
+    font-family: 'Lato';
+    letter-spacing: 5px;
+    left: 0;
+    font-weight: lighter;
+    font-size: 12px;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+  color: #06b39e;
+  font-size: 12px;
+  top: -20px;
+  transition: 0.5s;
+}
+
+.box input[type="submit"] {
+  background: transparent;
+  color: white;
+  border-spacing: none;
+  border: 1px solid white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.box input[type="submit"]:hover {
+  background: #06b39e;
+  border: 1px solid orange;
+  transition: 0.3s;
+}
+
+.btn-submit{
+    background-color: #dd3c00;
+    color: #fafafa;
+    border-style: none;
+    font-family: 'Lato';
+    font-size: 20px;
+    margin-left: 5%;
+    max-width: 100%;
+    width: 90%;
+    font-weight: lighter;
+    letter-spacing: 7px;
+}
+
+/*hasta aquí para inputs bonitos*/

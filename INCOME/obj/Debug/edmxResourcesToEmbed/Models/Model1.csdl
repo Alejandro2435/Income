@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="INCOMEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CategoriasE">
+    <Key>
+      <PropertyRef Name="IdCategoria" />
+    </Key>
+    <Property Name="IdCategoria" Type="Int32" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Egresos" Relationship="Self.FK__Egresos__Tipo__5629CD9C" FromRole="CategoriasE" ToRole="Egresos" />
+  </EntityType>
+  <EntityType Name="CategoriasI">
+    <Key>
+      <PropertyRef Name="IdCategoria" />
+    </Key>
+    <Property Name="IdCategoria" Type="Int32" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Ingresos" Relationship="Self.FK__Ingresos__Tipo__5812160E" FromRole="CategoriasI" ToRole="Ingresos" />
+  </EntityType>
+  <EntityType Name="Egresos">
+    <Key>
+      <PropertyRef Name="IdEgreso" />
+    </Key>
+    <Property Name="IdEgreso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdUser" Type="Int32" />
+    <Property Name="Tipo" Type="Int32" />
+    <Property Name="Monto" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Fecha" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CategoriasE" Relationship="Self.FK__Egresos__Tipo__5629CD9C" FromRole="Egresos" ToRole="CategoriasE" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK__Egresos__IdUser__5535A963" FromRole="Egresos" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="Ingresos">
+    <Key>
+      <PropertyRef Name="IdIngreso" />
+    </Key>
+    <Property Name="IdIngreso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdUser" Type="Int32" />
+    <Property Name="Tipo" Type="Int32" />
+    <Property Name="Monto" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Fecha" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CategoriasI" Relationship="Self.FK__Ingresos__Tipo__5812160E" FromRole="Ingresos" ToRole="CategoriasI" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK__Ingresos__IdUser__571DF1D5" FromRole="Ingresos" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="Subtotal">
+    <Key>
+      <PropertyRef Name="IdSubtotal" />
+    </Key>
+    <Property Name="IdSubtotal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdUser" Type="Int32" />
+    <Property Name="Ingreso" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Egreso" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Balance" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK__Subtotal__IdUser__59063A47" FromRole="Subtotal" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="IdUser" />
+    </Key>
+    <Property Name="IdUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="foto" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Egresos" Relationship="Self.FK__Egresos__IdUser__5535A963" FromRole="Usuarios" ToRole="Egresos" />
+    <NavigationProperty Name="Ingresos" Relationship="Self.FK__Ingresos__IdUser__571DF1D5" FromRole="Usuarios" ToRole="Ingresos" />
+    <NavigationProperty Name="Subtotal" Relationship="Self.FK__Subtotal__IdUser__59063A47" FromRole="Usuarios" ToRole="Subtotal" />
+  </EntityType>
+  <Association Name="FK__Egresos__Tipo__5629CD9C">
+    <End Role="CategoriasE" Type="Self.CategoriasE" Multiplicity="0..1" />
+    <End Role="Egresos" Type="Self.Egresos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CategoriasE">
+        <PropertyRef Name="IdCategoria" />
+      </Principal>
+      <Dependent Role="Egresos">
+        <PropertyRef Name="Tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ingresos__Tipo__5812160E">
+    <End Role="CategoriasI" Type="Self.CategoriasI" Multiplicity="0..1" />
+    <End Role="Ingresos" Type="Self.Ingresos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CategoriasI">
+        <PropertyRef Name="IdCategoria" />
+      </Principal>
+      <Dependent Role="Ingresos">
+        <PropertyRef Name="Tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Egresos__IdUser__5535A963">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+    <End Role="Egresos" Type="Self.Egresos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="IdUser" />
+      </Principal>
+      <Dependent Role="Egresos">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ingresos__IdUser__571DF1D5">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+    <End Role="Ingresos" Type="Self.Ingresos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="IdUser" />
+      </Principal>
+      <Dependent Role="Ingresos">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Subtotal__IdUser__59063A47">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+    <End Role="Subtotal" Type="Self.Subtotal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="IdUser" />
+      </Principal>
+      <Dependent Role="Subtotal">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="INCOMEEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CategoriasE" EntityType="Self.CategoriasE" />
+    <EntitySet Name="CategoriasI" EntityType="Self.CategoriasI" />
+    <EntitySet Name="Egresos" EntityType="Self.Egresos" />
+    <EntitySet Name="Ingresos" EntityType="Self.Ingresos" />
+    <EntitySet Name="Subtotal" EntityType="Self.Subtotal" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+    <AssociationSet Name="FK__Egresos__Tipo__5629CD9C" Association="Self.FK__Egresos__Tipo__5629CD9C">
+      <End Role="CategoriasE" EntitySet="CategoriasE" />
+      <End Role="Egresos" EntitySet="Egresos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ingresos__Tipo__5812160E" Association="Self.FK__Ingresos__Tipo__5812160E">
+      <End Role="CategoriasI" EntitySet="CategoriasI" />
+      <End Role="Ingresos" EntitySet="Ingresos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Egresos__IdUser__5535A963" Association="Self.FK__Egresos__IdUser__5535A963">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Egresos" EntitySet="Egresos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ingresos__IdUser__571DF1D5" Association="Self.FK__Ingresos__IdUser__571DF1D5">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Ingresos" EntitySet="Ingresos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Subtotal__IdUser__59063A47" Association="Self.FK__Subtotal__IdUser__59063A47">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Subtotal" EntitySet="Subtotal" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

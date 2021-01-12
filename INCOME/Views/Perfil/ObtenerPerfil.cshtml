@@ -1,0 +1,30 @@
+﻿@model List<INCOME.Models.ModeloUsuarios.ModUsuarios>
+
+@{
+    ViewBag.Title = "Perfil";
+}
+
+@foreach (var item in Model)
+{
+    <form>
+        <div class="form-group">
+            <div class="input-box">
+                <input type="text" readonly="true" value="@item.Nombre" id="nameinfo" name="" required />
+                <label for="">NAME</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-box">
+                <input type="text" name="" readonly="true" value="@item.Username" id="usernameinfo" required />
+                <label for="">USERNAME</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-box">
+                <input type="email" name="" readonly="true" value="@item.Email" id="emailinfo" required />
+                <label for="">EMAIL</label>
+            </div>
+        </div>
+    </form>
+}
+

@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "View_ActualizarInfo";
+}
+
+<form action="~/Controllers/Perfil/ActualizarInfo" method="post">
+    <div class="form-group">
+        <div class="input-box">
+            <input type="text" id="name" name="name" required />
+            <label for="">NAME</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-box">
+            <input type="email" name="email" id="email" required />
+            <label for="">EMAIL</label>
+        </div>
+    </div>
+    <div class="alert alert-success">
+        <strong>ÉXITO:</strong> Se han actualizado los datos correctamente.
+    </div>
+    <input type="submit" class="btn-submit" value="UPDATE">
+</form>
+

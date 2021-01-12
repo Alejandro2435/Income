@@ -1,0 +1,159 @@
+﻿@model List<INCOME.Models.ModeloUsuarios.ModUsuarios>
+
+@{
+    ViewBag.Title = "Perfil";
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="~/CSS/Perfil_Styles.css" rel="stylesheet" type="text/css" />
+</head>
+<body id="CuerpoPerfil">
+    <div class="row">
+        <div class="col col-lg-1 space">
+            <div class="sidebar">
+                <a class="active">
+                    <img src="/Imagenes/imggato.jpg" class="imagen" id="icono" width="50" height="50">
+                </a>
+                <a>
+                    <img src="~/Imagenes/house-red.svg" class="iconos" />
+                </a>
+                <a>
+                    <img type="image" src="~/Imagenes/dollar-symbol.svg" class="iconos" />
+                </a>
+                <a>
+                    <img type="image" src="~/Imagenes/dollar-symbol.svg" class="iconos" />
+                </a>
+                <a>
+                    <img type="image" src="~/Imagenes/pie-chart.svg" class="iconos" />
+                </a>
+            </div>
+        </div>
+        <div class="col col-lg-11 space">
+            <div class="col col-lg-4">
+                <div class="panel panel-default paneles">
+                    <div class="panel-body panelperfil">
+                        <div class="row">
+                            <img src="/Imagenes/imggato.jpg" class="imagen" id="perfil" width="250" height="250">
+                        </div>
+                        <div class="row">
+                            <p>Mini Gato</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-lg-3">
+                <div class="panel panel-default paneles">
+                    <div class="panel-body panelperfil">
+                        <div class="row">
+                            <div class="col col-lg-12">
+                                <button id="info" class="margenboton">INFORMATION</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-lg-12">
+                                <button id="changeinfor" class="margenboton">CHANGE INFORMATION</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-lg-12">
+                                <button id="changepassword" class="margenboton">CHANGE PASSWORD</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-lg-12">
+                                <button id="changeprofile" class="margenboton">CHANGE PROFILE PIC</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-lg-4">
+                <div class="panel panel-default paneles">
+                    <div class="panel-body" style="padding-top:40px;" id="informacion">
+                        <!---->
+                        @foreach (var item in Model)
+                        {
+                            <form>
+                                <div class="form-group">
+                                    <div class="input-box">
+                                        <input type="text" readonly="true" value="@item.Nombre" id="nameinfo" name="" required />
+                                        <label for="">NAME</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-box">
+                                        <input type="text" name="" readonly="true" value="@item.Username" id="usernameinfo" required />
+                                        <label for="">USERNAME</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-box">
+                                        <input type="email" name="" readonly="true" value="@item.Email" id="emailinfo" required />
+                                        <label for="">EMAIL</label>
+                                    </div>
+                                </div>
+                            </form>
+                        }
+                    </div>
+                    <div class="panel-body" style="padding-top:40px; display: none;" id="changeinformacion">
+                        <form action="~/Controllers/Perfil/ActualizarInfo" method="post">
+                            <div class="form-group">
+                                <div class="input-box">
+                                    <input type="text" id="name" name="name" required />
+                                    <label for="">NAME</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-box">
+                                    <input type="email" name="email" id="email" required />
+                                    <label for="">EMAIL</label>
+                                </div>
+                            </div>
+                            <input type="submit" class="btn-submit" value="UPDATE">
+                        </form>
+                    </div>
+                    <div class="panel-body" style="padding-top:40px; display:none" id="contrasena">
+                        <form>
+                            <div class="form-group">
+                                <div class="input-box">
+                                    <input type="text" id="password" name="" required />
+                                    <label for="">PASSWORD</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-box">
+                                    <input type="text" name="" id="password" required />
+                                    <label for="">NEW PASSWORD</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-box">
+                                    <input type="email" name="" id="confirmnewpassword" required />
+                                    <label for="">CONFIRM NEW PASSWORD</label>
+                                </div>
+                            </div>
+                            <input type="submit" class="btn-submit" value="UPDATE">
+                        </form>
+                    </div>
+                    <div class="panel-body panelperfil" style="padding-top:40px; display: none;" id="imagen_perfil">
+                        <form>
+                            <button id="selectpic" class="margenboton">SELECT PROFILE PIC</button>
+                            <div class="row">
+                                <label id="rutapicperfil">Ruta:</label>
+                            </div>
+                            <br>
+                            <input type="submit" class="btn-submit" value="UPDATE">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/Perfil_Scripts.js"></script>
+</body>
+</html>
+
+
+

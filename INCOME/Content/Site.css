@@ -1,0 +1,144 @@
+﻿body {
+    margin: 0;
+    font-family: 'Microsoft Yi Baiti';
+    font-size: 20px;
+    background-color: #33333d;
+    display: block;
+}
+
+/* Set padding to keep content from hitting the edges
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+*/
+
+/* Set width on the form input elements since they're 100% wide by default 
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+*/
+
+/*
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+.sidebar {
+    margin: 0px;
+    padding: 0px;
+    width: auto;
+    background-color: #33333d;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    text-align: center;
+}
+
+    .sidebar a {
+        display: block;
+        color: white;
+        padding: 16px;
+        text-decoration: none;
+    }
+
+        .sidebar a.active {
+            background-color: #848495;
+        }
+
+        .sidebar a:hover:not(.active) {
+            background-color: #555;
+            color: white;
+        }
+
+div.content {
+    padding: 1px 16px;
+    height: 1000px;
+    color: black;
+    position: fixed;
+}
+
+.imagen {
+    
+    max-width: 75%;
+    max-height: 50%;
+    
+    border-radius: 50%;
+}
+
+
+@media screen and (max-width: 700px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+        .sidebar a {
+            float: left;
+        }
+
+    .imagen {
+        max-width: 75%;
+        height: auto;
+        border-radius: 50%;
+    }
+
+    div.content {
+        margin-left: 0px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .sidebar a {
+        text-align: center;
+        float: none;
+    }
+}
+
+.space {
+    padding-top: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.paneles {
+    background-color: #535360;
+    color: white;
+    border: none;
+    height: 400px;
+}
+
+.panelperfil {
+    padding-top: 80px;
+    padding-bottom: 40px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.padd {
+    padding: 10px;
+}
+
+button#info, button#changepassword, button#changeprofile {
+    padding: 10px;
+    max-width: 100%;
+    height: auto;
+    color: #ffffff;
+    background-color: #535360;
+    border-color: #00796b;
+    border-radius: 5px;
+    border: 2px solid #00796b;
+}
+
+    button#info:hover, button#changepassword:hover, button#changeprofile:hover {
+        background-color: #00796b;
+    }
+
+.margenboton {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+*/
